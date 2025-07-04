@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dokomo Foundation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    header.hero {
+      position: relative;
+      background: linear-gradient(rgba(0, 100, 0, 0.6), rgba(0, 100, 0, 0.6)), url('banner.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero .btn {
+      padding: 0.8rem 1.5rem;
+      background: #2e8b57;
+      border: none;
+      color: white;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .hero .btn:hover {
+      background: #256d45;
+    }
+    .logo-header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .logo-header img {
+      position: absolute;
+      left: 20px;
+      height: 100px;
+    }
+    .logo-header span {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;  /* Elegant serif font */
+      letter-spacing: 2px;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1 1 150px;
+    }
+    .stat-item h2 {
+      font-size: 2rem;
+      color: #2e8b57;
+    }
+    .card-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      width: 250px;
+      background: #7ed8f9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 3px;
+    }
+    .cta-section {
+      background: #2e8b57;
+      color: white;
+      padding: 40px 20px;
+    }
+    .cta-section a {
+      background: white;
+      color: #2e8b57;
+      padding: 0.8rem 1.2rem;
+      margin: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  height: 450px;
+  overflow-y: auto;
+  background-color: #bde6f9;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 20px 35px 25px rgba(31, 4, 4, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+.modal-content h1 {
+  text-align: center;
+   padding: 20px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+.know-more-btn {
+  background: none;
+  color: #4f3fe0;               /* Text color */
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-bottom: 2px solid #1a1b65; /* Orange underline */
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+.know-more-btn:hover {
+  color: #006400;                /* Slightly darker green on hover */
+  border-bottom-color: #ff4500;  /* Brighter underline on hover */
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero" data-aos="fade-up">
+    <div class="logo-header">
+      <img src="img/logo.jpeg" alt="Dokomo Logo" />
+      <span>Dokomo Foundation</span>
+    </div></br>
+    <h1>Welcome to Dokomo Foundation – Nurturing Nature, Inspiring Change</h1>
+    <p>A vibrant youth-driven organization connecting people, preserving nature, and empowering communities.</p>
+    <a href="#events" class="btn">Explore Events</a>
+    <a href="registration.html" class="btn">Register Now</a>
+  </header>
+
+  <!-- About Preview -->
+  <section data-aos="fade-up">
+  <h2>About Us</h2>
+  <p>Dokomo Foundation is a collective of thinkers, doers, and nature lovers who believe in sustainable impact through community efforts. Join us in creating a greener tomorrow.</p>
+  <button onclick="openModal()" class="btn know-more-btn">Know More</button>
+</section>
+
+<!-- Modal Popup -->
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h1>About Dokomo Foundation</h1>
+    <p>
+      Dokomo Foundation is a youth-driven non-profit organization dedicated to environmental sustainability, social upliftment, and community engagement. Founded in 2021, we’ve united over 300 active members across Karnataka and organized 50+ nature campaigns, awareness drives, and clean-up initiatives. <br><br>
+      Our mission is to inspire positive change by connecting people with purpose. We believe in creating long-term value by focusing on education, environment, and empowerment.
+    </p>
+  </div>
+</div>
+
+
+  <!-- Quick Stats -->
+  <section data-aos="fade-up">
+    <h2>Our Impact</h2>
+    <div class="stats">
+      <div class="stat-item">
+        <h2>50+</h2>
+        <p>Events Conducted</p>
+      </div>
+      <div class="stat-item">
+        <h2 id="active-members-count">0</h2>
+        <p>Active Members</p>
+      </div>
+      <div class="stat-item">
+        <h2>20+</h2>
+        <p>Community Vlogs</p>
+      </div>
+      <div class="stat-item">
+        <h2>5</h2>
+        <p>Awards/Recognitions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" data-aos="fade-up">
+    <h2>Upcoming Events</h2></br>
+    <div class="card-container">
+      <div class="card">
+        <img src="img/chandragutti.jpg" alt="Event 1">
+        <h3>Namma Trek – Chandragutti Edition</h3>
+        <p>15 Nov 2025 | Shivamogga</p>
+      </div>
+      <div class="card">
+        <img src="img/anegundi.jpg" alt="Event 2">
+        <h3>Anegundi Bhojanayatre</h3>
+        <p>24 Feb 2026 | Siddapursrs</p>
+      </div>
+    </div></br>
+    <a href="#">View All Events</a>
+  </section>
+
+  <!-- Vlogs Teaser -->
+  <section data-aos="fade-up">
+    <h2>Latest Vlogs</h2>
+    <div class="card-container">
+      
+      <div class="card">
+  <a href="https://youtu.be/UPC43LKOR6o" target="_blank">
+    <img src="https://img.youtube.com/vi/UPC43LKOR6o/0.jpg" alt="Vlog 1">
+  </a>
+  <h3>Western Ghats Road Drive : Sirsi-Kumta road | First Nature Vlog 🌿🚗</h3>     
+</div>
+<div class="card">
+        <a href="https://youtu.be/01hhvEh96QE?si=n9YBXrz1meLYzQQR" target="_blank"></a>
+        <img src="https://img.youtube.com/vi/01hhvEh96QE/0.jpg" alt="Vlog 2">
+        <h3>Mattigatta Trails - Part 2 : Western ghats, Uttara kannada 🌿🌿</h3>
+      </div>
+    </div>
+    <a href="#">Watch More Vlogs</a>
+  </section>
+
+  <!-- Executive Board -->
+  <section data-aos="fade-up">
+    <h2>Executive Board</h2><br>
+    <div class="card-container">
+      <div class="card">
+        <img src="member1.jpg" alt="Member 1">
+        <h3>Janardhan S. – President</h3>
+      </div>
+      <div class="card">
+        <img src="img/vinay.jpeg" alt="Member 2">
+        <h3>Vinay M <br>Vice President</h3>
+      </div>
+      <div class="card">
+        <img src="member1.jpg" alt="Member 3">
+        <h3>Panduranga Gowda – Chief Director</h3>
+      </div>
+      <div class="card">
+        <img src="member2.jpg" alt="Member 4">
+        <h3>Sandesh P. S. – Executive Director</h3>
+      </div>
+      <div class="card">
+        <img src="member1.jpg" alt="Member 5">
+        <h3>Lohith – Chief Secretary</h3>
+      </div>
+      <div class="card">
+        <img src="member2.jpg" alt="Member 6">
+        <h3>Karthik Gowda – Technical Advisor</h3>
+      </div>
+    </div>
+    <a href="#">Meet Our Full Team</a>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section" data-aos="fade-up">
+    <h2>Want to be a part of our journey?</h2><br>
+    <a href="#register">Register as a Volunteer</a>
+    <a href="#contact">Contact Us</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Dokomo Foundation. All rights reserved.</p>
+    <p>Email: contact@dokomo.org | Instagram: @dokomo.foundation</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+  const storedCount = localStorage.getItem("activeMembers") || "0";
+  document.getElementById("active-members-count").innerText = storedCount;
+</script>
+<script>
+  function openModal() {
+    document.getElementById("aboutModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("aboutModal").style.display = "none";
+  }
+
+  // Close modal when clicking outside content
+  window.onclick = function(event) {
+    const modal = document.getElementById("aboutModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
