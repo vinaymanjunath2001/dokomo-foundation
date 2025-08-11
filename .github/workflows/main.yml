@@ -1,0 +1,31 @@
+name: Deploy Static Site to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy files to EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            sudo rm -rf /var/www/html/*
+            git clone https://github.com/vinaymanjunath2001/dokomo-foundation.git /tmp/site
+            sudo cp -r /tmp/site/* /var/www/html/
+            sudo rm -rf /tmp/site
+            sudo systemctl restart httpd
+          EOF
